@@ -1,6 +1,10 @@
 package Main;
 
+import java.io.IOException;
 import java.util.ArrayList;
+
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class Employee {
 	static public ArrayList <Employee> employeeList = new ArrayList<>();
@@ -45,7 +49,7 @@ public class Employee {
 	   employeeList.add(employeeInformation);
    } 
    
-   public void displayAllEmployee() {
+   public void displayAllEmployee() throws LineUnavailableException, IOException, UnsupportedAudioFileException {
 	   if(employeeList.isEmpty()) {
 		   System.out.print("Empty");
 		   StartOperation operation = new StartOperation();

@@ -4,5 +4,5 @@
 /**
  * 
  */
-module EmployeeData {
+class EmployeeData {
 }
