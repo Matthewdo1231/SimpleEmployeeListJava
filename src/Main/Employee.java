@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class Employee {
 	static public ArrayList <Employee> employeeList = new ArrayList<>();
-	static private int employeeNum;
     private String employeeName;
     private int age;
     private int salary;
@@ -49,15 +48,18 @@ public class Employee {
    public void displayAllEmployee() {
 	   if(employeeList.isEmpty()) {
 		   System.out.print("Empty");
+		   StartOperation operation = new StartOperation();
+		   operation.promptMenu();
 	   }
 	   for(Employee e : employeeList) {
 		  String info = "Employee info is: "+ e.getEmployeeName() + " " + e.getAge() + " " + e.getSalary() +" " + e.getEmployeeRole();
+		  this.clearScreen();
 		  System.out.println(info);
 	   }
    }
    
    public void clearScreen() {
-	   for (int i = 0; i < 50; i++) {
+	   for (int i = 0; i < 20; i++) {
 	        System.out.println();
 	    }
 	}

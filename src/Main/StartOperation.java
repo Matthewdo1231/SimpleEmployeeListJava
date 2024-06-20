@@ -21,6 +21,7 @@ public class StartOperation {
 					 employees.displayAllEmployee();
 					 break;
 				 }
+				 scanner.close();
 			 }
 		  
 		     public void addEmployee() {
@@ -44,16 +45,26 @@ public class StartOperation {
 	             employee.addEmployee(employee);
 	             System.out.println("Entry Succesfully Added");
 	            
-	             System.out.println("Do you want to add more Employee Press 'Y' for Yes, 'N' for No");
-	             char prompt = scanner.next().charAt(0);
-	             if(prompt == 'Y') {
+	             this.promptMenu();
+	             
+	             scanner.close();
+	             
+		     }
+		  
+		   public void promptMenu() {
+			    Employee employee = new Employee();
+			    Scanner scanner = new Scanner(System.in);
+			    System.out.println("Do you want to add more Employee Press 'Y' for Yes, 'N' for No");
+	            char prompt = scanner.next().charAt(0);
+			    if(prompt == 'Y') {
+	            	 employee.clearScreen();
 	            	 this.addEmployee();
 	             }
 	             else {
+	            	employee.clearScreen();
 	            	this.startProgram();
 	             }
-		     }
-		  
-		  
+			    scanner.close();
+		   }
 	  }
 		
