@@ -2,6 +2,7 @@ package Main;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
@@ -45,21 +46,49 @@ public class Employee {
        return this.employeeRole;
  } 
 
-   public void addEmployee(Employee employeeInformation) {
+   public void addEmployeeToList(Employee employeeInformation) {
 	   employeeList.add(employeeInformation);
    } 
    
+   public void addEmployee() throws LineUnavailableException, IOException, UnsupportedAudioFileException {
+  	 Scanner scanner = new Scanner(System.in);
+  	 Employee employee = new Employee();
+  	 StartOperation operation = new StartOperation();
+		 
+		 System.out.print("Enter Employee Name: ");
+		 employee.setEmployeeName(scanner.nextLine());
+		 
+		 System.out.print("Enter Employee Age: ");
+		 employee.setAge(scanner.nextInt());
+		 scanner.nextLine();
+		 
+		 System.out.print("Enter Employee Salary: ");
+		 employee.setSalary(scanner.nextInt());
+		 scanner.nextLine();
+		 
+		 System.out.println("Enter Employee EmployeeRole: ");
+		 employee.setEmployeeRole(scanner.nextLine());
+		 
+       employee.addEmployeeToList(employee);
+       System.out.println("Entry Succesfully Added");
+      
+       operation.promptMenu();
+       
+       scanner.close();
+       
+   }
+   
    public void displayAllEmployee() throws LineUnavailableException, IOException, UnsupportedAudioFileException {
+	   StartOperation operation = new StartOperation();
 	   if(employeeList.isEmpty()) {
 		   System.out.print("Empty");
-		   StartOperation operation = new StartOperation();
-		   operation.promptMenu();
 	   }
 	   for(Employee e : employeeList) {
 		  String info = "Employee info is: "+ e.getEmployeeName() + " " + e.getAge() + " " + e.getSalary() +" " + e.getEmployeeRole();
 		  this.clearScreen();
 		  System.out.println(info);
 	   }
+	   operation.promptMenu();
    }
    
    public void clearScreen() {

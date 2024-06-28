@@ -19,7 +19,8 @@ public class StartOperation {
 			     
 				 switch(currentOperation) {
 				 case 1: 
-					 this.addEmployee();
+					 Employee employee = new Employee();
+					 employee.addEmployee();
 				     break;
 				 case 2:
 					 Employee employees = new Employee();
@@ -33,32 +34,6 @@ public class StartOperation {
 				 scanner.close();
 			 }
 		  
-		     public void addEmployee() throws LineUnavailableException, IOException, UnsupportedAudioFileException {
-		    	 Scanner scanner = new Scanner(System.in);
-		    	 Employee employee = new Employee();
-				 
-				 System.out.print("Enter Employee Name: ");
-				 employee.setEmployeeName(scanner.nextLine());
-				 
-				 System.out.print("Enter Employee Age: ");
-				 employee.setAge(scanner.nextInt());
-				 scanner.nextLine();
-				 
-				 System.out.print("Enter Employee Salary: ");
-				 employee.setSalary(scanner.nextInt());
-				 scanner.nextLine();
-				 
-				 System.out.println("Enter Employee EmployeeRole: ");
-				 employee.setEmployeeRole(scanner.nextLine());
-				 
-	             employee.addEmployee(employee);
-	             System.out.println("Entry Succesfully Added");
-	            
-	             this.promptMenu();
-	             
-	             scanner.close();
-	             
-		     }
 		  
 		   public void promptMenu() throws LineUnavailableException, IOException, UnsupportedAudioFileException {
 			    Employee employee = new Employee();
@@ -67,7 +42,7 @@ public class StartOperation {
 	            char prompt = scanner.next().charAt(0);
 			    if(prompt == 'Y') {
 	            	 employee.clearScreen();
-	            	 this.addEmployee();
+	            	 employee.addEmployee();
 	             }
 	             else {
 	            	employee.clearScreen();
